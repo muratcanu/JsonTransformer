@@ -14,12 +14,12 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/listTransformedContents') }}">List Transformed Elements</a>
+                    <a class="nav-link" href="{{ url('/listElements') }}">List Element Mappings</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/listElements') }}">List Element Mappings</a>
+                    <a class="nav-link" href="{{ url('/listTransformedContents') }}">List Transformed Elements</a>
                 </li>
             </ul>
         </div>
