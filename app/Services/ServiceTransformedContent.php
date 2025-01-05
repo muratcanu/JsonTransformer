@@ -31,8 +31,8 @@ class ServiceTransformedContent {
     {
         $data = $rawContent;
         unset($data["elements"]);
-        //dd($data);
         $mappingArrayStr = $this->elementMappingReposityory->findByElementor($data['elType']);
+        
         eval('$result = ' . $mappingArrayStr->settings_mapper . ';');
         $elementsData = $rawContent["elements"] ??  null;
         if ($elementsData != null) {

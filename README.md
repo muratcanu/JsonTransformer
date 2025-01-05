@@ -19,3 +19,13 @@ JsonTransformer has 2 main pages. 'List Element Mappings' and 'List Transformed 
 - 'List Transformed Elements' page shows elements that are transformed. Including transformed content. 
 - Transformed contents cannot be edited.
 - New elements can be transformed through 'Transform Content' button.
+
+## Testing
+- To run tests, first testing database needs to be installed.
+- Run 'docker exec -it jsontransformer_db bash'. This command will open a different command line.
+- In this command line, run 'psql -U laravel -d jsontransformer'. This command will open a psql command line.
+- In psql command line, run 'CREATE DATABASE testing;'. This command will create testing database. Use 'exit' command to quit command lines.
+- After creating testing database, run command 'docker exec -it your_app_container_name bash -c "php artisan migrate --env=testing"'.
+- This command creates tables inside testing database. Remember that credentials of testing database is inside .env.testing file.
+- There are 2 test files with multiple test inside as default. You can edit or add more.
+- To run tests, use command 'docker exec -it jsontransformer_app bash -c "./vendor/bin/phpunit"'.
