@@ -1,0 +1,66 @@
+{
+    "id": "section1",
+    "elType": "section",
+    "settings": {
+        "layout": "full_width",
+        "padding": {
+            "unit": "px",
+            "top": "20",
+            "right": "0",
+            "bottom": "20",
+            "left": "0"
+        },
+        "padding_tablet": {
+            "unit": "px",
+            "top": "10",
+            "right": "0",
+            "bottom": "10",
+            "left": "0"
+        },
+        "padding_mobile": {
+            "unit": "px",
+            "top": "5",
+            "right": "0",
+            "bottom": "5",
+            "left": "0"
+        },
+        "animation": "fadeIn",
+        "animation_duration": "slow",
+        "animation_delay": 200,
+        "custom_css": ".elementor-widget-heading { text-shadow: 2px 2px #ff0000; }",
+        "custom_css_classes": "my-custom-class another-class",
+        "dynamic": {
+            "title": {
+                "type": "post",
+                "field": "title"
+            }
+        }
+    },
+    "elements": [
+        {
+            "id": "column1",
+            "elType": "column",
+            "settings": {
+                "_column_size": 50,
+                "_margin_mobile": {
+                    "unit": "%",
+                    "top": "0",
+                    "right": "10",
+                    "bottom": "0",
+                    "left": "10"
+                }
+            },
+            "elements": [
+                {
+                    "id": "widget1",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                        "title": "Hello World",
+                        "align": "center"
+                    }
+                }
+            ]
+        }
+    ]
+}

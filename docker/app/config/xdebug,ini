@@ -1,0 +1,9 @@
+zend_extension=xdebug.so
+xdebug.mode=develop,coverage,debug,profile
+xdebug.idekey=docker
+xdebug.start_with_request=yes
+xdebug.log=/var/www/jsontransformer/xd.log
+xdebug.client_port=9001
+xdebug.remote_enable = 1
+xdebug.remote_autostart = 1
+xdebug.remote_host = 127.0.0.1

@@ -1,0 +1,57 @@
+version: '3.8'
+
+networks:
+  jsontransformer_network:
+    driver: bridge
+
+services:
+  app:
+    build:
+      args:
+        user: mcan
+        uid: 1000
+      context: ./
+      dockerfile: app/image/Dockerfile
+    container_name: jsontransformer_app
+    working_dir: /var/www/jsontransformer
+    volumes:
+      - ../:/var/www/jsontransformer
+      - ./app/config:/usr/local/etc/php/conf.d
+    ports:
+      - "8080:80"
+      - "9003:9003"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - jsontransformer_network
+    depends_on:
+      - db
+
+  nginx:
+    restart: unless-stopped
+    image: nginx:latest
+    container_name: jsontransformer_nginx
+    ports:
+      - "8060:80"
+    volumes:
+      - ../:/var/www/jsontransformer
+      - ./nginx/config:/etc/nginx/conf.d
+    networks:
+      - jsontransformer_network
+
+  db:
+    image: postgres:latest
+    container_name: jsontransformer_db
+    environment:
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: Muratcan1234
+      POSTGRES_DB: jsontransformer
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "54322:5432"
+    networks:
+      - jsontransformer_network
+
+volumes:
+  db_data:
